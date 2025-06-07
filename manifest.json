@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "UmmahShield - Porn Blocker",
+  "version": "2.0",
+  "description": "Blocks porn websites and filters explicit content from search engines.",
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/*",
+        "*://*.google.co.uk/*",
+        "*://*.google.ca/*",
+        "*://*.bing.com/*",
+        "*://*.yahoo.com/*",
+        "*://*.duckduckgo.com/*",
+        "*://*.yandex.com/*",
+        "*://*.brave.com/*",
+        "*://*.ecosia.org/*",
+        "*://*.youtube.com/results*",
+        "*://*.reddit.com/*",
+        "*://*.tumblr.com/*",
+        "*://*.pinterest.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "block.html"
+  }
+}
